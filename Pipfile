@@ -16,6 +16,7 @@ pandas = "*"
 ipython = "*"
 tensorflow = "*"
 keras = "*"
+jupyterlab = "*"
 
 [requires]
 python_version = "3.8"

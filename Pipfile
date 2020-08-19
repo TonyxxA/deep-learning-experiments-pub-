@@ -4,6 +4,8 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+pylint = "*"
+black = "*"
 
 [packages]
 matplotlib = "*"
@@ -12,9 +14,11 @@ pydot-ng = "*"
 opencv-python = "*"
 pandas = "*"
 ipython = "*"
-jupyter = "*"
 tensorflow = "*"
 keras = "*"
 
 [requires]
 python_version = "3.8"
+
+[pipenv]
+allow_prereleases = true

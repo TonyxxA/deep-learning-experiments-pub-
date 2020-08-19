@@ -1,0 +1,9 @@
+function prompt{
+  if ($env:PIPENV_ACTIVE -eq 1) {
+    # @TODO:
+    $venv = (($env:VIRTUAL_ENV -split "\\")[-1] -split " ")[0]
+    "($venv) $(Get-Location)> ";
+  } else {
+    "$(Get-Location)$('>' * ($nestedPromptLevel + 1))";
+  }
+}

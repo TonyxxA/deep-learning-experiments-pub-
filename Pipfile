@@ -15,7 +15,6 @@ opencv-python = "*"
 pandas = "*"
 tensorflow = "*"
 keras = "*"
-ipykernel = "*"
 jupyterlab = "*"
 
 [requires]

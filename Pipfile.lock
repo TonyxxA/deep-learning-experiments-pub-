@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "4e3b60c3d24627eca2d5c09e67bd813de84d6ee803e448700ffd9483416eee66"
+            "sha256": "7bb3737b05beb9066d7a3991f8030f7cd6423d22afe7664a4363150b18f267ca"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -18,9 +18,10 @@
     "default": {
         "absl-py": {
             "hashes": [
-                "sha256:75e737d6ce7723d9ff9b7aa1ba3233c34be62ef18d5859e706b8fdc828989830"
+                "sha256:b20f504a7871a580be5268a18fbad48af4203df5d33dbc9272426cb806245a45",
+                "sha256:ea07d7d437798bffc14f39fccec3909d251a1e76e233205ded72b71c267e0178"
             ],
-            "version": "==0.9.0"
+            "version": "==0.10.0"
         },
         "argon2-cffi": {
             "hashes": [
@@ -280,7 +281,7 @@
                 "sha256:9b2652af1607986a1b231c62302d070bc0534f564c393a5d9d130db9abbbe89d",
                 "sha256:d6fbba26dba3cebd411382bc484f7bc2caa98427ae0ddb4ab37fe8bfeb5c7dd3"
             ],
-            "markers": "python_version >= '3.5'",
+            "index": "pypi",
             "version": "==5.3.4"
         },
         "ipython": {

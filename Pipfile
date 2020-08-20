@@ -20,11 +20,11 @@ jupyterlab = "*"
 #pypiwin32 = "*" #  Is required for Windows only, install manually and skip locking dependencies when setting up a venv. 
                  #    To do so, run:   pipenv install
                  #                     pipenv isntall pypiwin32 --skip-lock
-                 #                     del Pipfile.lock
-                 #                     del Pipfile
-                 #                     <path to bash> git pull <remote> <branch>
-                 #
+                 #                     <path to bash>$ git checkout Pipfile.lock
+                 #                                  >$ git checkout Pipfile   
+                 #///////////
                  # When setting up a venv on linux, just run:    pipenv install
+                 #///////////
                  # Ultimate check: if all steps are completed correctly, then pypiwin32 should not be listed as installed package in this file
 
 [requires]

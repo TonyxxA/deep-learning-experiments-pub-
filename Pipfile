@@ -16,6 +16,8 @@ pandas = "*"
 tensorflow = "*"
 keras = "*"
 jupyterlab = "*"
+pypiwin32 = "*"  #  WIN only, install manually and skip locking dependencies. To do so, run:   pipenv install
+                 #                                                                             pipenv isntall pypiwin32 --skip-lock
 
 [requires]
 python_version = "3.8"

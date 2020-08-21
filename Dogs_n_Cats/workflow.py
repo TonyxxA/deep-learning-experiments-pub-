@@ -1,68 +1,22 @@
-import os, shutil
+from tensorflow.keras import models, layers, optimizers
 
-original_dataset_dir = "Dogs_n_Cats/data/full_data"
+model = models.Sequential()
 
-base_dir = "Dogs_n_Cats/data/partial_data"
-os.mkdir(base_dir)
+model.add(layers.Conv2D(32, (3, 3), activation="relu", input_shape=(150, 150, 3)))
+model.add(layers.MaxPool2D(2, 2))
+model.add(layers.Conv2D(64, (3, 3), activation="relu"))
+model.add(layers.MaxPool2D(2, 2))
+model.add(layers.Conv2D(128, (3, 3), activation="relu"))
+model.add(layers.MaxPool2D(2, 2))
+model.add(layers.Conv2D(128, (3, 3), activation="relu"))
+model.add(layers.MaxPool2D(2, 2))
+model.add(layers.Flatten())
+model.add(layers.Dense(512, activation="relu"))
+model.add(layers.Dense(1, activation="sigmoid"))
 
-train_dir = os.path.join(base_dir, "train")
-os.mkdir(train_dir)
-validation_dir = os.path.join(base_dir, "validation")
-os.mkdir(validation_dir)
-test_dir = os.path.join(base_dir, "test")
-os.mkdir(test_dir)
-
-train_cats_dir = os.path.join(train_dir, "train_cats")
-os.mkdir(train_cats_dir)
-train_dogs_dir = os.path.join(train_dir, "train_dogs")
-os.mkdir(train_dogs_dir)
-
-validation_cats_dir = os.path.join(validation_dir, "validation_cats")
-os.mkdir(validation_cats_dir)
-validation_dogs_dir = os.path.join(validation_dir, "validation_dogs")
-os.mkdir(validation_dogs_dir)
-
-
-test_cats_dir = os.path.join(test_dir, "test_cats")
-os.mkdir(test_cats_dir)
-test_dogs_dir = os.path.join(test_dir, "test_dogs")
-os.mkdir(test_dogs_dir)
-
-
-fnames = ["cat.{}.jpg".format(i) for i in range(1000)]
-for filename in fnames:
-    src = os.path.join(original_dataset_dir, filename)
-    dst = os.path.join(train_cats_dir, filename)
-    shutil.copyfile(src, dst)
-
-fnames = ["cat.{}.jpg".format(i) for i in range(1000, 1500)]
-for filename in fnames:
-    src = os.path.join(original_dataset_dir, filename)
-    dst = os.path.join(validation_cats_dir, filename)
-    shutil.copyfile(src, dst)
-
-fnames = ["cat.{}.jpg".format(i) for i in range(1500, 2000)]
-for filename in fnames:
-    src = os.path.join(original_dataset_dir, filename)
-    dst = os.path.join(test_cats_dir, filename)
-    shutil.copyfile(src, dst)
-
-
-fnames = ["dog.{}.jpg".format(i) for i in range(1000)]
-for filename in fnames:
-    src = os.path.join(original_dataset_dir, filename)
-    dst = os.path.join(train_dogs_dir, filename)
-    shutil.copyfile(src, dst)
-
-fnames = ["dog.{}.jpg".format(i) for i in range(1000, 1500)]
-for filename in fnames:
-    src = os.path.join(original_dataset_dir, filename)
-    dst = os.path.join(validation_dogs_dir, filename)
-    shutil.copyfile(src, dst)
-
-
-fnames = ["dog.{}.jpg".format(i) for i in range(1500, 2000)]
-for filename in fnames:
-    src = os.path.join(original_dataset_dir, filename)
-    dst = os.path.join(test_dogs_dir, filename)
-    shutil.copyfile(src, dst)
+model.compile(
+    optimizer=optimizers.RMSprop(learning_rate=1e-4),
+    loss="binary_crossentropy",
+    metrics=["acc"],
+)
+print(model.summary())
